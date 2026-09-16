@@ -202,8 +202,14 @@ print(f"Species 2     {cm[1,0]:>6}     {cm[1,1]:>6}     {cm[1,2]:>6}")
 print(f"Species 3.    {cm[2,0]:>6}     {cm[2,1]:>6}     {cm[2,2]:>6}")
 #tn, fp, fn, tp = cm.ravel()
 aa , ab, ac,ba,bb,bc,ca,cb,cc = cm.ravel()
+
+#Precision
 print(f"precision for Species 1 : {aa/(aa+ba+ca)}")
 print(f"precision for Species 2 : {bb/(ab+bb+cb)}")
 print(f"precision for Species 3 : {cc/(ac+bc+cc)}")
 
-#print(f"\nprecision {tp/(tp+fp):.3f}   recall {tp/(tp+fn):.3f}")
+#Recall
+print(f"recall for Species 1: {aa/(aa+ab+ac)}")
+print(f"recall for Species 1: {bb/(ba+bb+bc)}")
+print(f"recall for Species 1: {cc/(ca+cb+cc)}")
+
