@@ -157,7 +157,7 @@ PRETTY = {
 
 def print_tree(node, indent="", branch=""):
     if node.leaf:
-        le_species.inverse_transform([node.prediction])[0]
+        verdict = le_species.inverse_transform([node.prediction])[0]
         print(f"{indent}{branch}-> {verdict}  (n={node.n})")
         return
     name = PRETTY[FEATURES[node.feature]]
@@ -210,6 +210,6 @@ print(f"precision for Species 3 : {cc/(ac+bc+cc)}")
 
 #Recall
 print(f"recall for Species 1: {aa/(aa+ab+ac)}")
-print(f"recall for Species 1: {bb/(ba+bb+bc)}")
-print(f"recall for Species 1: {cc/(ca+cb+cc)}")
+print(f"recall for Species 2: {bb/(ba+bb+bc)}")
+print(f"recall for Species 3: {cc/(ca+cb+cc)}")
 
