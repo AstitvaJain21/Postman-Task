@@ -2,8 +2,33 @@
 
 Sorry I am so late i will make changes after BOSM most probably 
 
+# Decision Tree from Scratch — Iris
 
-What it prints
+A CART-style classification tree implemented with NumPy only (no `sklearn`
+estimators). It trains on the Iris dataset and reports Gini impurity, the best
+split, tree structure, a depth sweep, and a 3x3 confusion matrix with per-class
+precision.
+
+Exported from a Colab notebook (`Postman task.ipynb`). It runs top to bottom as
+a plain script.
+
+## Requirements
+
+- Python 3.9+
+- `numpy`, `pandas`, `seaborn`, `scikit-learn`
+
+
+## Knobs worth changing
+
+| Parameter            | Where                 | Effect |
+| max_depth            | build_tree            | Hard cap on depth. |
+| min_samples_split    | build_tree            | Minimum rows before a node may split. Matters more than `max_depth` here. |
+| max_candidates       | candidate_thresholds  | Thresholds tried per feature (20). |
+| test_size,  seed     | train_test_split      | Split ratio and shuffle; `seed=1` at the call site. |
+| feature_subset_size  | build_tree            | Random feature sampling per node — the hook for a random forest. |
+
+
+## What it prints
 1.Dataset head and row count (150 rows, 112 train / 38 test).
 2.Gini impurity of the training labels (~0.666 for three balanced classes).
 3.The best first split, e.g. petal_length <= 1.9.
@@ -13,7 +38,7 @@ What it prints
 7.A 3x3 confusion matrix plus per-class precision.
 
 
-Everything lives in one file, in this order:
+## Everything lives in one file, in this order:
 1.data loading and encoding → 
 2.train_test_split / accuracy → 
 3.gini → 
