@@ -184,16 +184,6 @@ for d in depths:
     print(f"depth {d:>2}   train {train_scores[-1]:.3f}   "
           f"test {test_scores[-1]:.3f}   leaves {leaf_counts[-1]:>3}")
 
-# example: what happens with almost no data?
-X_tiny, y_tiny = X_train[:50], y_train[:50]
-tiny = build_tree(X_tiny, y_tiny, max_depth=20, min_samples_split=2)
-print(f"trained on 50 passengers:  train {accuracy(y_tiny, predict(tiny, X_tiny)):.3f}"
-      f"   test {accuracy(y_test, predict(tiny, X_test)):.3f}")
-
-# example: take away the strongest feature
-no_sex = [i for i, f in enumerate(FEATURES) if f != "sex"]
-t_nosex = build_tree(X_train[:, no_sex], y_train, max_depth=4)
-print(f"without 'gender':             test {accuracy(y_test, predict(t_nosex, X_test[:, no_sex])):.3f}")
 
 def confusion_matrix(y_true, y_pred):
     cm = np.zeros((3, 3), dtype=int)
