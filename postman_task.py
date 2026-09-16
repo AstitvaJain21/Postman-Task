@@ -146,7 +146,7 @@ def predict(tree, X):
 train_acc = accuracy(y_train, predict(tree, X_train))
 test_acc = accuracy(y_test, predict(tree, X_test))
 print(f"depth-4 tree   train {train_acc:.3f}   test {test_acc:.3f}")
-print(f"baseline                       {1 - y_test.mean():.3f}")
+print(f"baseline  {(np.bincount(y_test).max() / len(y_test)):.3f}")
 
 PRETTY = {
     "sepal_length": "sepal length",
@@ -157,7 +157,7 @@ PRETTY = {
 
 def print_tree(node, indent="", branch=""):
     if node.leaf:
-        verdict = "SURVIVED" if node.prediction == 1 else "DIED"
+        le_species.inverse_transform([node.prediction])[0]
         print(f"{indent}{branch}-> {verdict}  (n={node.n})")
         return
     name = PRETTY[FEATURES[node.feature]]
