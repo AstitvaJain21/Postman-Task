@@ -1,7 +1,17 @@
 # Postman-Task
 
 Sorry I am so late i will make changes after BOSM most probably 
-I could have used an AI for it but i am lazy sorry
+
+
+What it prints
+1.Dataset head and row count (150 rows, 112 train / 38 test).
+2.Gini impurity of the training labels (~0.666 for three balanced classes).
+3.The best first split, e.g. petal_length <= 1.9.
+4.Train and test accuracy for a depth-4 tree.
+5.An indented text rendering of a depth-3 tree.
+6.A depth sweep over [1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20] with leaf counts — this is where overfitting shows up: train accuracy climbs to 1.000 while test accuracy plateaus.
+7.A 3x3 confusion matrix plus per-class precision.
+
 
 Everything lives in one file, in this order:
 1.data loading and encoding → 
@@ -15,5 +25,5 @@ Everything lives in one file, in this order:
 9.confusion_matrix and precision.
 
 
-for my commits you m\can check my colab notebook
+for my commits you can check my colab notebook
 Link:https://colab.research.google.com/drive/1LnhQJ8BFs9t2NzAotMZfJuQVuysJlguG?usp=sharing
